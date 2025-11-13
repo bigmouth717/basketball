@@ -31,7 +31,7 @@ file:
 
 # 微信小程序配置
 wechat:
-  app-id: your-wechat-app-id
+  app-id: wxefe309a4c98a51a6
   app-secret: your-wechat-app-secret
   login-url: https://api.weixin.qq.com/sns/jscode2session
 
