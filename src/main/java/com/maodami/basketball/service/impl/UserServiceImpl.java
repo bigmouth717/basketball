@@ -1,5 +1,6 @@
 package com.maodami.basketball.service.impl;
 
+import com.maodami.basketball.dto.response.WechatLoginResponse;
 import com.maodami.basketball.entity.User;
 import com.maodami.basketball.repository.UserRepository;
 import com.maodami.basketball.service.UserService;
@@ -42,8 +43,11 @@ public class UserServiceImpl implements UserService {
                 .toUriString();
 
         //使用 RestClient 发送 HTTP GET 请求到微信服务器
-//        WechatLoginResponse response;
-        restClient.get().uri(url).retrieve().body(String.class);
+        //.get是设置http的方法为get
+        //.url是设置请求的URL
+        //.retrieve 进入响应处理阶段
+        //.body 将响应的JSON内容体自动转换为WechatLoginResponse类的java对象response
+         WechatLoginResponse response=restClient.get().uri(url).retrieve().body(WechatLoginResponse.class);
         return null;
     }
 }
