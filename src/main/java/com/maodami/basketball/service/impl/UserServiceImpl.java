@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
         //.url是设置请求的URL
         //.retrieve 进入响应处理阶段
         //.body 将响应的JSON内容体自动转换为WechatLoginResponse类的java对象response
-         WechatLoginResponse response=restClient.get().uri(url).retrieve().body(WechatLoginResponse.class);
+        WechatLoginResponse response = restClient.get().uri(url).retrieve().body(WechatLoginResponse.class);
         return null;
     }
 }
