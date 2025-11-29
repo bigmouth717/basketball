@@ -48,6 +48,11 @@ public class UserServiceImpl implements UserService {
         //.retrieve 进入响应处理阶段
         //.body 将响应的JSON内容体自动转换为WechatLoginResponse类的java对象response
         WechatLoginResponse response = restClient.get().uri(url).retrieve().body(WechatLoginResponse.class);
+
+        //判断response的内容是否为空
+        if (response == null || response.getOpenId() == null) {
+            throw new RuntimeException("微信登录失败: " + (response != null ? response.getErrMsg() : "未知错误"));
+        }
         return null;
     }
 }
