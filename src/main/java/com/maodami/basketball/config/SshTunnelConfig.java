@@ -4,9 +4,9 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
-@Component
+@Configuration
 public class SshTunnelConfig {
     @Value("${ssh.host}")
     private String sshHost;
@@ -24,7 +24,7 @@ public class SshTunnelConfig {
         session.setPassword(sshPassword);
         session.setConfig("StrictHostKeyChecking", "no");
         session.connect();
-        session.setPortForwardingL(3307, "127.0.0.1", 3306);
+        session.setPortForwardingL(3306, "127.0.0.1", 3306);
         System.out.println("SSH隧道已建立");
     }
 }

@@ -2,14 +2,18 @@ server:
   port: 8080
   servlet:
     context-path: /api
+ssh:
+  host: ${SSH_HOST}
+  user: ${SSH_USER}
+  password: ${SSH_PASSWORD}
 
 spring:
   application:
     name: basketball
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/basketball?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
-    username: bigmouth717
-    password: luolewei1984
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:3306/basketball?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

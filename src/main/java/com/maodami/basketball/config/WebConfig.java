@@ -1,9 +1,11 @@
 package com.maodami.basketball.config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Configuration
 public class WebConfig implements WebMvcConfigurer {
     //跨域
     @Override
@@ -18,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     //文件上传
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry){
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/files/**")
                 .addResourceLocations("file:./uploads/");
     }
